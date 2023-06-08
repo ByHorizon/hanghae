@@ -3,50 +3,72 @@ app = Flask(__name__)
 
 from datetime import datetime #날짜, 시간 가져오는 라이브러리
 
+import bcrypt
+
 from pymongo import MongoClient
-import certifi
-
-ca = certifi.where()
-
-client = MongoClient('mongodb+srv://sparta:test@cluster0.n0opkcs.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
-db = client.dbspartapip
+client = MongoClient('mongodb+srv://sparta:test@cluster0.5lznp6w.mongodb.net/?retryWrites=true&w=majority')
+db = client.dbsparta
 
 
 @app.route('/')
 def home():
    return render_template('index.html')
 
-
 @app.route("/delete", methods=["POST"]) #삭제 메서드
 def delete_post():
+    #password_receive = request.form['password_give']
+    password_receive = 'gustjdgustjd'
+    inputPw = password_receive.encode('utf-8')
     id_receive = request.form['id_give']
     id = int(id_receive)
-    findComments = list(db.comment.find({},{'_id':False}))
-    for a in findComments:
-        findId = (a['id']) 
-        if(findId > id):
-            fixId = findId-1
-            db.comment.update_one({'id': findId},{'$set':{'id':fixId}})
-        else:
-            db.comment.delete_one({'id':id})
+    findComment = db.comment.find_one({'id': id})
+    if findComment is None :
+        print("해당 글이 없다")
+        return {'msg' : '해당 글이 없습니다!'}
+    else:
+        password = findComment['password']
+        dbPwd = password.encode('utf-8')
+        if bcrypt.checkpw(inputPw, dbPwd):
+            findComments = list(db.comment.find({},{'_id':False})) # id값 수정 로직
+            for a in findComments:
+                findId = (a['id']) 
+                if(findId > id):
+                    fixId = findId-1
+                    db.comment.update_one({'id': findId},{'$set':{'id':fixId}})
+                else:
+                    db.comment.delete_one({'id':id})
+        else: return {'msg' : '비밀번호가 다릅니다!'}
 
-    return jsonify({'msg' : '삭제 완료!'})
+        return jsonify({'msg' : '삭제 완료!'})
 
 @app.route("/update", methods=["POST"]) #수정 메서드
 def update_post():
+    #password_receive = request.form['password_give']
+    password_receive = 'gustjdgustjd'
+    inputPw = password_receive.encode('utf-8')
     ucomment_receive = request.form['ucomment_give']
     id_receive = request.form['id_give']
-    if not ucomment_receive:
-        return jsonify({'msg' : '내용을 입력해주세요!'})
-    else:
-        db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
-        return {'msg' : '수정 완료!'}
-
+    id = int(id_receive)
+    findComment = db.comment.find_one({'id':id})
+    password = findComment['password']
+    dbPwd = password.encode('utf-8')
+    if bcrypt.checkpw(inputPw, dbPwd):
+        if not ucomment_receive:
+            return jsonify({'msg' : '내용을 입력해주세요!'})
+        else:
+            db.comment.update_one({'id': id},{'$set':{'comment':ucomment_receive}})
+            return {'msg' : '수정 완료!'}
+    else: return {'msg' : '비밀번호가 다릅니다!'}
 
 @app.route("/guestbook", methods=["POST"])
 def guestbook_post():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
+    #password_receive = request.form['password_give']
+    password_receive = 'gustjdgustjd'
+    password = password_receive.encode('utf-8')
+    hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+    insertPw = hashed.decode()
     now = datetime.now()
     date= "%d년%d월%d일%d시" % (now.year, now.month, now.day, now.hour)
     comment_list = list(db.comment.find({}, {'_id': False}))
@@ -56,6 +78,7 @@ def guestbook_post():
         "name" : name_receive,
         "comment" : comment_receive,
         "date" : date,
+        "password" : insertPw
     }
     if not comment_receive or not name_receive:
         return jsonify({'msg' : '내용을 입력해주세요!'})
