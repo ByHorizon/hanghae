@@ -33,7 +33,15 @@ function update_scc(a) {
     fetch('/update', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {
-            alert(data['msg']);
-            window.location.reload();
+            let msg = data['msg'];
+            console.log('msg');
+            if (msg.includes('내용')) {
+                alert(data['msg']);
+            } else {
+                alert(data['msg']);
+                window.location.reload();
+            }
+            // alert(data['msg']);
+            // window.location.reload();
         });
 }
