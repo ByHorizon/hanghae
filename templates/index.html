@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/light-dark.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/move.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}" />
 
         <!-- get data link -->
         <script src="{{ url_for('static', filename='js/data.js') }}"></script>
@@ -39,6 +40,14 @@
     </head>
 
     <body>
+        <div class="modal">
+            <button class="X-btn">
+                <span></span>
+                <span></span>
+            </button>
+            <p>삭제 하시겠습니까?</p>
+            <input type="text" id="del-" placeholder="비밀번호" />
+        </div>
         <header>
             <div class="inner">
                 <h1>from to the bottom!</h1>
@@ -191,7 +200,9 @@
                             <tr>
                                 <td>1</td>
                                 <td>홍길이</td>
-                                <td class="txt-box bf">잘 보고 갑니다.</td>
+                                <td class="bf">
+                                    <p class="txt-box">잘 보고 갑니다.</p>
+                                </td>
                                 <td class="update-input-box af">
                                     <input
                                         class="comment-update"

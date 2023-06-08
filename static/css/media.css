@@ -1,0 +1,124 @@
+@media screen and (max-width: 1060px) {
+  .guestbook .num{
+    width: 5%;
+  
+  }
+  .guestbook .user{
+    width: 15%;
+  
+  }
+  .guestbook .comment{
+    width: 45%;
+  }
+  .guestbook .date{
+    width: 20%;
+  
+  }
+  .guestbook .btn-thead{
+    width: 30%;
+  }
+}
+@media screen and (max-width: 950px) {
+  #choose .btn-box.af{
+    display: flex;
+    flex-direction: column;
+  }
+  .guestbook .btn-click{
+    width: 100%;
+  }
+  #choose .update-input-box{
+    display: flex;
+    flex-direction: column;
+  }
+  #choose .update-input-box input{
+    width: 100%;
+    border-bottom: 1px solid #fff;
+
+  }
+  #choose .update-input-box input::placeholder{
+    text-align: center;
+  }
+  #choose .update-input-box #pw-update{
+    width: 100%;
+    border:none
+  }
+  .guestbook .date{
+    display: none;
+  }
+  .guestbook table td.date-txt{
+    display: none;
+
+  }
+}
+@media screen and (max-width: 700px) {
+  .wrap{
+    width: 100%;
+  }
+
+  .guestbook .num{
+    width: 8%;
+  
+  }
+  .guestbook .user{
+    width: 25%;
+  
+  }
+  .guestbook .comment{
+    width: 45%;
+  }
+  .cards{
+    flex-direction: column;
+  }
+  .save-box{
+    /* margin: 20px; */
+    width: 100%;
+  }
+  .save-box .input-com{
+    width: 85%;
+  }
+  .save-box .name-box{
+    width: 100%;
+  }
+  .save-box .pw-box{
+    width: 100%;
+  }
+  .icons{
+    left: calc(50% - 135px);
+  }
+}
+@media screen and (max-width: 400px){
+  .guestbook .num{
+    display: none;
+  
+  }
+  .guestbook table td:nth-child(1){
+    display: none;
+  }
+  .guestbook .user{
+    border-radius: 25px 0 0 0;
+    width: 15%;
+  
+  }
+  .guestbook .comment{
+    border-radius: 0 25px 0 0;
+border-right: none;
+    width: 60%;
+  }
+
+  .guestbook .btn-thead{
+    width: 30%;
+  }
+ 
+
+
+  .dark-btn{
+    display: none;
+  }
+  .guestbook table th:nth-child(5){
+    display: none;
+  }
+  .guestbook table td.btn-box{
+    display: none;
+
+  }
+}
