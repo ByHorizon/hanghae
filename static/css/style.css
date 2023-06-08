@@ -198,6 +198,7 @@ border-radius: 20px 0 0 0;
   padding-left: 12px;
   /* background: white; */
   border-bottom: solid 1px #fff;
+  /* display: block; */
 }
 .guestbook table td:nth-child(1){
   padding: 0;
@@ -242,6 +243,7 @@ backdrop-filter: blur(5px);
 transition: all 0.2s ease-in-out;
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 color: #fff;
+word-break: keep-all;
 }
 .guestbook .btn-click:nth-child(1){
   border-right: solid 1px #fff;
@@ -253,7 +255,6 @@ color: #fff;
   width: 100%;
   height: auto;
 }
-
 /* 방명록 수정버튼 css style */
 .update-input-box{
   display: none;
@@ -286,7 +287,6 @@ color: #fff;
 }
 #choose .update-input-box #pw-update::placeholder{
   text-align: center;
-
 }
 #choose .update-input-box input::placeholder{
   color: #fff;
