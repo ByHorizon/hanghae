@@ -38,17 +38,13 @@ def update_post():
         return jsonify({'msg' : '내용을 입력해주세요!'})
     else:
         db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
-    return {'msg' : '수정 완료!'}
+        return {'msg' : '수정 완료!'}
+
 
 @app.route("/guestbook", methods=["POST"])
 def guestbook_post():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
-    # password_receive = request.form['password_give']
-    # password_receive = "gustjdgustjd"
-    # password = password_receive.encode('utf-8')
-    # hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-    # insertPw = hashed.decode()
     now = datetime.now()
     date= "%d년%d월%d일%d시" % (now.year, now.month, now.day, now.hour)
     comment_list = list(db.comment.find({}, {'_id': False}))
