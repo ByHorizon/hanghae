@@ -124,35 +124,3 @@ figure.snip1200.hover p {
   transition-delay: 0.35s;
 }
 /* 카드 hover 끝 */
-
-/* 타이틀 */
-.title {
-  border-bottom: #000000 5px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  height: 12.5rem;
-  padding-top: 70px;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  color: black;
-
-  width: 80%;
-  margin: 0 auto;
-}
-.footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 25px;
-  text-align: center;
-  border: #000000 solid 10px;
-
-  height: 6.25rem;
-  width: 80%;
-  margin: 35px auto 0px;
-}
-/* 타이틀 끝 */
