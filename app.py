@@ -34,7 +34,10 @@ def delete_post():
 def update_post():
     ucomment_receive = request.form['ucomment_give']
     id_receive = request.form['id_give']
-    db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
+    if not ucomment_receive:
+        return jsonify({'msg' : '내용을 입력해주세요!'})
+    else:
+        db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
     return {'msg' : '수정 완료!'}
 
 @app.route("/guestbook", methods=["POST"])
@@ -51,13 +54,15 @@ def guestbook_post():
     comment_list = list(db.comment.find({}, {'_id': False}))
     count = len(comment_list) + 1
     doc ={
-
         "id" : count,
         "name" : name_receive,
         "comment" : comment_receive,
         "date" : date,
     }
-    db.comment.insert_one(doc)
+    if not comment_receive or not name_receive:
+        return jsonify({'msg' : '내용을 입력해주세요!'})
+    else:
+        db.comment.insert_one(doc)
     return jsonify({'msg': '저장 완료!'})
 
 @app.route("/guestbook", methods=["GET"])
