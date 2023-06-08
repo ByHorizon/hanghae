@@ -28,7 +28,7 @@ def delete_post():
             db.comment.delete_one({'id':id})
         return {'msg' : '삭제 완료!'}
 
-@app.route("/update", methods=["POST"]) #수정 메서드
+@app.route("/update", methods=["POST"]) #수정 메서드!
 
 def update_post():
     ucomment_receive = request.form['ucomment_give']
