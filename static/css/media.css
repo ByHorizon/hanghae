@@ -50,7 +50,10 @@
 
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
+  section > h2{
+    word-break:keep-all;
+  }
   .wrap{
     width: 100%;
   }
@@ -82,11 +85,12 @@
   .save-box .pw-box{
     width: 100%;
   }
+ 
+}
+@media screen and (max-width: 400px){
   .icons{
     left: calc(50% - 135px);
   }
-}
-@media screen and (max-width: 400px){
   .guestbook .num{
     display: none;
   
