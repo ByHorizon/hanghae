@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $('#choose .update-input-box').empty();
+    $('#comment-update').remove();
+    $('#pw-update').remove();
     listing();
 });
 
@@ -44,10 +45,12 @@ function listing() {
 function save_comment() {
     let name = $('#name-box').val();
     let comment = $('#comment-box').val();
+    let Pw = $('#pw-box').val();
 
     let formData = new FormData();
     formData.append('name_give', name);
     formData.append('comment_give', comment);
+    formData.append('pw_give', Pw);
     fetch('/guestbook', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {

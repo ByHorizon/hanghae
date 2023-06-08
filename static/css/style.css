@@ -255,18 +255,27 @@ color: #fff;
   display: flex;
 }
 #choose .update-input-box{
-  display: block;
+  display: flex;
   padding: 0;
 }
 #choose .update-input-box input{
   display: block;
-  width: 100%;
+  width: 70%;
   border: 0;
   padding: 12px;
   background: rgba(255, 255, 255, 0.2);
   transition: all 0.1s ease-in-out;
   border-left: 2px solid rgba(0, 0, 0, 0.0);
   border-top: 2px solid rgba(0, 0, 0, 0.0);
+}
+#choose .update-input-box #pw-update{
+  width: 30%;
+  border-left: solid 1px #fff;
+
+}
+#choose .update-input-box #pw-update::placeholder{
+  text-align: center;
+
 }
 #choose .update-input-box input::placeholder{
   color: #fff;

@@ -10,13 +10,15 @@ function update_btn(e) {
     type="text"
     placeholder="수정을 입력해 주세요."
 />
+<input id="pw-update" type="text" placeholder="비밀번호" />
                             `;
     $('#choose .update-input-box').append(temp_html);
 }
 
 function update_cancle() {
     $('#choose').removeAttr('id');
-    console.log('dle');
+    $('#comment-update').remove();
+    $('#pw-update').remove();
 }
 
 function update_scc(a) {
