@@ -149,7 +149,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="guestbook">
                 <h2>방명록</h2>
                 <div class="save-box">
@@ -161,13 +160,20 @@
                             type="text"
                             placeholder="닉네임을 입력해주세요"
                         />
-                        <button onclick="save_comment()">방명록 남기기</button>
+                        <input
+                            id="pw-box"
+                            class="pw-box"
+                            type="text"
+                            placeholder="비밀번호를 입력해주세요!"
+                        />
+
                         <input
                             id="comment-box"
                             class="comment-box"
                             type="text"
                             placeholder="내용을 입력해 주세요."
                         />
+                        <button onclick="save_comment()">방명록 남기기</button>
                     </div>
                 </div>
                 <div class="content-box">

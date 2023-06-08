@@ -52,11 +52,10 @@ function save_comment() {
         .then((response) => response.json())
         .then((data) => {
             let msg = data['msg'];
-            console.log('msg');
             if (msg.includes('내용')) {
-                alert(data['msg']);
+                alert(msg);
             } else {
-                alert(data['msg']);
+                alert(msg);
                 window.location.reload();
             }
         });
