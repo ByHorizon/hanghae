@@ -8,7 +8,7 @@ body[data-theme="dark"] {
   color: #f1f1f1;
 }
 
-.dark-btn {
+/* .dark-btn {
   background-color: #f1f1f1;
   color: #333;
   font-size: 14px;
@@ -16,7 +16,7 @@ body[data-theme="dark"] {
   border: 2px solid #302e2e;
   border-radius: 5px;
   width: 50px;
-}
+} */
 
 .dark-btn:hover{
   background-color: #333;
