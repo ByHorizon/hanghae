@@ -3,43 +3,47 @@ app = Flask(__name__)
 
 from datetime import datetime #날짜, 시간 가져오는 라이브러리
 
-import bcrypt
-
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://sparta:test@cluster0.5lznp6w.mongodb.net/?retryWrites=true&w=majority')
-db = client.dbsparta
+import certifi
 
+ca = certifi.where()
+
+client = MongoClient('mongodb+srv://sparta:test@cluster0.n0opkcs.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
+db = client.dbsparta
 
 @app.route('/')
 def home():
    return render_template('index.html')
 
 
-@app.route("/delete", methods=["POST"]) #삭제 메서드
+@app.route("/delete", methods=["POST"]) #삭제 메서드!
 def delete_post():
     id_receive = request.form['id_give']
     id = int(id_receive)
-    findComments = list(db.comment.find({},{'_id':False}))
-    for a in findComments:
-        findId = (a['id']) 
-        if(findId > id):
-            fixId = findId-1
-            db.comment.update_one({'id': findId},{'$set':{'id':fixId}})
-        else:
+    dbid = list(db.comment.find({}, {'_id': False}))
+    for a in dbid :
+        if id < a['id'] :
+            db.comment.update_one({'id':a['id']},{'$set':{'id':a['id']-1}})
+        else : 
             db.comment.delete_one({'id':id})
+        return {'msg' : '삭제 완료!'}
 
-    return jsonify({'msg' : '삭제 완료!'})
+@app.route("/update", methods=["POST"]) #수정 메서드!
 
-@app.route("/update", methods=["POST"]) #수정 메서드
 def update_post():
     ucomment_receive = request.form['ucomment_give']
     id_receive = request.form['id_give']
+<<<<<<< HEAD
     if not ucomment_receive:
         return jsonify({'msg' : '내용을 입력해주세요!'})
     else:
         db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
         return {'msg' : '수정 완료!'}
 
+=======
+    db.comment.update_one({'id': int(id_receive)},{'$set':{'comment':ucomment_receive}})
+    return {'msg' : '수정 완료!'}
+>>>>>>> adc3d9da11d123a0aadd090f1b6dea0c1a210807
 
 @app.route("/guestbook", methods=["POST"])
 def guestbook_post():
@@ -49,16 +53,15 @@ def guestbook_post():
     date= "%d년%d월%d일%d시" % (now.year, now.month, now.day, now.hour)
     comment_list = list(db.comment.find({}, {'_id': False}))
     count = len(comment_list) + 1
+    print(count)
     doc ={
+
         "id" : count,
         "name" : name_receive,
         "comment" : comment_receive,
-        "date" : date,
+        "date" : date
     }
-    if not comment_receive or not name_receive:
-        return jsonify({'msg' : '내용을 입력해주세요!'})
-    else:
-        db.comment.insert_one(doc)
+    db.comment.insert_one(doc)
     return jsonify({'msg': '저장 완료!'})
 
 @app.route("/guestbook", methods=["GET"])
