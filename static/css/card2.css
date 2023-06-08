@@ -1,0 +1,84 @@
+header{
+  padding: 20px 0;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.cardf{
+  margin: 0 auto;
+  padding: 120px 0;
+}
+.wrap{
+  background: white;
+  width: 90%;
+  max-width: 1600px;
+  padding: 60px 0;
+  margin: 0 auto;
+
+  background: rgba(255, 255, 255, 0.0);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 60px rgba( 0, 0, 0, 0.1 );
+  backdrop-filter: blur(5px);
+  border-radius: 32px;
+
+
+}
+.card-section h1{
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px 0;
+      background: rgba(255, 255, 255, 0.0);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 60px rgba( 0, 0, 0, 0.1 );
+  backdrop-filter: blur(5px);
+  border-radius: 32px;
+  color: #fff;
+  font-size: 60px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.icons a{
+  padding: 10px 25px;
+  border-radius: 20px;
+        background: rgba(255, 255, 255, 0.0);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 60px rgba( 0, 0, 0, 0.1 );
+  backdrop-filter: blur(5px);
+  border-radius: 32px;
+  transition: all 0.2s ease-in-out;
+
+  color: #fff;
+}
+
+.icons a:hover{
+  box-shadow: 0px 0px 10px rgba( 0, 0, 0, 0.2 );
+  color: rgb(255, 156, 199);
+}
+
+.dark-btn{
+  padding: 10px 25px;
+  border-radius: 20px;
+        background: rgba(255, 255, 255, 0.0);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 60px rgba( 0, 0, 0, 0.1 );
+  backdrop-filter: blur(5px);
+  border-radius: 32px;
+  color: #fff;
+}
+.dark-btn{
+  transition: all 0.2s ease-in-out;
+  
+}
+/* 
+figure.snip1200 figcaption{
+  box-shadow: 2px 2px 60px rgba(0, 0, 0, 1);
+} */
+figure.snip1200{
+  box-shadow: 2px 2px 60px rgba(0, 0, 0, 0.2);
+
+}

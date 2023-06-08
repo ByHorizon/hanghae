@@ -51,8 +51,13 @@ function save_comment() {
     fetch('/guestbook', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {
-            alert(data['msg']);
-            window.location.reload();
+            let msg = data['msg'];
+            if (msg.includes('내용')) {
+                alert(msg);
+            } else {
+                alert(msg);
+                window.location.reload();
+            }
         });
 }
 

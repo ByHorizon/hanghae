@@ -1,5 +1,6 @@
 function update_btn(e) {
     // const parent = $(e).parent();
+    console.log('choose');
     $('#choose').removeAttr('id');
     let gran_parent = $(e).parent().parent();
     gran_parent.attr('id', 'choose');
@@ -15,6 +16,7 @@ function update_btn(e) {
 
 function update_cancle() {
     $('#choose').removeAttr('id');
+    console.log('dle');
 }
 
 function update_scc(a) {
@@ -33,7 +35,12 @@ function update_scc(a) {
     fetch('/update', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {
-            alert(data['msg']);
-            window.location.reload();
+            let msg = data['msg'];
+            if (msg.includes('내용')) {
+                alert(msg);
+            } else {
+                alert(msg);
+                window.location.reload();
+            }
         });
 }
