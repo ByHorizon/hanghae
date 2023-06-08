@@ -57,7 +57,7 @@ figure.snip1200 .heading {
   bottom: 0;
   width: 100%;
 }
-figure.snip1200 h2 {
+figure.snip1200 h3 {
   display: table;
   margin: 0 auto;
   padding: 0 10px;
@@ -67,11 +67,11 @@ figure.snip1200 h2 {
   text-transform: uppercase;
   font-weight: 400;
 }
-figure.snip1200 h2 span {
+figure.snip1200 h3 span {
   font-weight: 800;
 }
-figure.snip1200 h2:before,
-figure.snip1200 h2:after {
+figure.snip1200 h3:before,
+figure.snip1200 h3:after {
   position: absolute;
   display: block;
   width: 1000%;
@@ -80,10 +80,10 @@ figure.snip1200 h2:after {
   background: white;
   top: 50%;
 }
-figure.snip1200 h2:before {
+figure.snip1200 h3:before {
   left: -1000%;
 }
-figure.snip1200 h2:after {
+figure.snip1200 h3:after {
   right: -1000%;
 }
 figure.snip1200 p {
