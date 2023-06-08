@@ -9,7 +9,7 @@ import certifi
 ca = certifi.where()
 
 client = MongoClient('mongodb+srv://sparta:test@cluster0.n0opkcs.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
-db = client.dbsparta
+db = client.dbspartapip
 
 @app.route('/')
 def home():
