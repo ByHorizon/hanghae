@@ -46,11 +46,11 @@ function save_comment() {
     let name = $('#name-box').val();
     let comment = $('#comment-box').val();
     let Pw = $('#pw-box').val();
-
+    console.log(Pw);
     let formData = new FormData();
     formData.append('name_give', name);
     formData.append('comment_give', comment);
-    formData.append('pw_give', Pw);
+    formData.append('password_give', Pw);
     fetch('/guestbook', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {

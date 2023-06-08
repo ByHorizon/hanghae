@@ -14,6 +14,7 @@ build/
 venv/
 venv2/
 venv3/
+venv4/
 
 # ignore doc/notes.txt, but not doc/server/arch.txt
 *.txt

@@ -24,15 +24,16 @@ function update_cancle() {
 function update_scc(a) {
     update_cancle();
 
-    console.log(a);
     let num = a;
     let ucomment = $('#comment-update').val();
+    let pw = $('#pw-update').val();
 
-    console.log(num, ucomment);
+    console.log(pw);
 
     let formData = new FormData();
     formData.append('id_give', num);
     formData.append('ucomment_give', ucomment);
+    formData.append('password_give', pw);
 
     fetch('/update', { method: 'POST', body: formData })
         .then((response) => response.json())
