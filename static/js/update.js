@@ -1,6 +1,6 @@
 function update_btn(e) {
     // const parent = $(e).parent();
-    console.log('choose');
+    // console.log('choose');
     $('#choose').removeAttr('id');
     let gran_parent = $(e).parent().parent();
     gran_parent.attr('id', 'choose');
@@ -22,13 +22,11 @@ function update_cancle() {
 }
 
 function update_scc(a) {
-    update_cancle();
-
     let num = a;
     let ucomment = $('#comment-update').val();
     let pw = $('#pw-update').val();
 
-    console.log(pw);
+    // console.log(pw, ucomment);
 
     let formData = new FormData();
     formData.append('id_give', num);
@@ -41,8 +39,10 @@ function update_scc(a) {
             let msg = data['msg'];
             if (msg.includes('내용')) {
                 alert(msg);
+                update_cancle();
             } else {
                 alert(msg);
+                update_cancle();
                 window.location.reload();
             }
         });
