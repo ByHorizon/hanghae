@@ -27,7 +27,9 @@ function listing() {
                                     <td class="date-txt">${date}</td>
                                     <td class="btn-box btn-before bf">
                                         <button onclick="update_btn(this)" class="btn-click">수정</button>
-                                        <button onclick="delete_btn(${id})" class="btn-click">삭제</button>
+                                        <button type="button" class="btn-click" data-toggle="modal" data-target="#exampleModal" onclick="a(${id})">
+                                        삭제
+                                    </button>
                                     </td>
                                     <td class="btn-box btn-after af">
                                         <button onclick="update_scc(${id})" class="btn-click">수정 완료</button>
@@ -64,10 +66,13 @@ function save_comment() {
         });
 }
 
-function delete_btn(a) {
-    let num = a;
+function delete_btn() {
+    let num = globalNum
+    let pw = $('#pw-box2').val();
+    console.log(`입력값은 ${pw}`)
     let formData = new FormData();
     formData.append('id_give', num);
+    formData.append('password_give', pw);
     fetch('/delete', { method: 'POST', body: formData })
         .then((response) => response.json())
         .then((data) => {
@@ -75,3 +80,10 @@ function delete_btn(a) {
             window.location.reload();
         });
 }
+
+var globalNum
+
+function a(id){
+    
+    return globalNum = id
+ } 

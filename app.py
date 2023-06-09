@@ -6,8 +6,12 @@ from datetime import datetime #날짜, 시간 가져오는 라이브러리
 import bcrypt
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://sparta:test@cluster0.5lznp6w.mongodb.net/?retryWrites=true&w=majority')
-db = client.dbsparta
+import certifi
+
+ca = certifi.where()
+
+client = MongoClient('mongodb+srv://sparta:test@cluster0.n0opkcs.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
+db = client.dbspartapip
 
 
 @app.route('/')
