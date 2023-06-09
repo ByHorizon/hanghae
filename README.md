@@ -33,9 +33,20 @@
 
 <br>
 
+## 참여 팀원
+- 문정민
+- 육정백
+- 김명준
+- 김혜경
+- 최현성
+
+<br>
+
 ## 배포 링크
 
 -   [AWS](http://mini.eba-cqpj3jhf.ap-northeast-2.elasticbeanstalk.com/)
+
+<br>
 
 ## API
 
