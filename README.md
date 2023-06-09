@@ -34,12 +34,11 @@
 - 반응형 디자인
 
 <br>
----
+
 ## 배포 링크
 
-- [AWS 배포]([https://www.naver.com](http://mini.eba-cqpj3jhf.ap-northeast-2.elasticbeanstalk.com/))
+[AWS 배포](http://mini.eba-cqpj3jhf.ap-northeast-2.elasticbeanstalk.com/)
 <br>
----
 
 ## API
 | 기능 | Method |  URL  |  request   | response |
