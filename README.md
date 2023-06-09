@@ -4,7 +4,7 @@
 
 팀 바닥에서 하늘까지 소개 홈페이지 입니다.
 
-![mainpage](https://github.com/ByHorizon/hanghae/assets/84562770/40b691c4-aaf4-47da-a045-53c26818954c)
+![스크린샷 2023-06-09 오후 3 22 37](https://github.com/ByHorizon/hanghae/assets/84562770/e57c612f-38f1-49f1-8e58-933ba7b88602)
 
 <br/>
 <br/>
