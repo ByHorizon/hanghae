@@ -20,11 +20,11 @@ function listing() {
                                 <tr>
                                     <td>${id}</td>
                                     <td>${name}</td>
-                                    <td class="txt-box bf">${comment}</td>
+                                    <td class="txt-box bf" >${comment}</td>
                                     <td class="update-input-box af">
                                     </td>
 
-                                    <td>${date}</td>
+                                    <td class="date-txt">${date}</td>
                                     <td class="btn-box btn-before bf">
                                         <button onclick="update_btn(this)" class="btn-click">수정</button>
                                         <button onclick="delete_btn(${id})" class="btn-click">삭제</button>
